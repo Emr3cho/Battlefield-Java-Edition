@@ -2,6 +2,7 @@ package Models.Soldiers;
 
 import GlobalConstansts.Exceptions.MyExceptions;
 import GlobalConstansts.PublicConstants;
+import Models.WeaponsAndWarMachines.Weapons.IWeapon;
 import lombok.Getter;
 
 @Getter
@@ -10,12 +11,13 @@ public abstract class Soldier {
     private int age;
     private double damage;
     private int health;
+    private IWeapon weapon;
 
-    public Soldier(String name, int age, double damage) {
+    public Soldier(String name, int age, IWeapon weapon) {
         setName(name);
         setAge(age);
-        setDamage(damage);
-        PublicConstants pc = new PublicConstants();
+        this.weapon = weapon;
+        setDamage(weapon.getDamage());
         setHealth(PublicConstants.SOLDIER_INITIAL_HEALTH);
     }
 
@@ -32,6 +34,7 @@ public abstract class Soldier {
     private void setAge(int age) {
         if (age < 15)
             throw new MyExceptions.InvalidAgeException();
+        this.age = age;
     }
 
     private void setDamage(double damage) {
@@ -44,5 +47,9 @@ public abstract class Soldier {
         if (name.length() < 3)
             throw new MyExceptions.InvalidNameException();
         this.name = name;
+    }
+
+    public String printSoldierNameAndWeapon(){
+        return String.format("%s is %d years old with %s!", this.getName(), this.getAge(), this.getWeapon());
     }
 }

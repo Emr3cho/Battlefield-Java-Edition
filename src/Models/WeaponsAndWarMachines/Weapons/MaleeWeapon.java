@@ -36,4 +36,14 @@ public enum MaleeWeapon implements IWeapon {
     public double getReloadRatio() {
         return this.reloadRatio;
     }
+
+    @Override
+    public String toString() {
+        return "MaleeWeapon {" +
+                "name='" + name + '\'' +
+                ", damage=" + damage +
+                ", durability=" + durability +
+                ", reloadRatio=" + reloadRatio +
+                "}";
+    }
 }

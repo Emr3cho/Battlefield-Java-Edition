@@ -37,4 +37,14 @@ public enum LongRangeWeapon implements IWeapon {
     public double getReloadRatio() {
         return reloadRatio;
     }
+
+    @Override
+    public String toString() {
+        return "LongRangeWeapon{" +
+                "name='" + name + '\'' +
+                ", damage=" + damage +
+                ", durability=" + durability +
+                ", reloadRatio=" + reloadRatio +
+                "}";
+    }
 }
