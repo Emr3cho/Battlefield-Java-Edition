@@ -1,4 +1,4 @@
-package GlobalConstansts.Exceptions;
+package common.exceptions;
 
 public class MyExceptions {
     public static class InvalidNameException extends RuntimeException {

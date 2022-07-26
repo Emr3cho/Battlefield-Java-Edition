@@ -1,17 +1,17 @@
-package Factories;
+package seeders;
 
-import Models.Soldiers.LongRangeSoldier;
-import Models.Soldiers.MeleeSoldier;
-import Models.Soldiers.Soldier;
-import Models.WeaponsAndWarMachines.Weapons.LongRangeWeapon;
-import Models.WeaponsAndWarMachines.Weapons.MaleeWeapon;
+import models.soldiers.LongRangeSoldier;
+import models.soldiers.MeleeSoldier;
+import models.contacts.Soldier;
+import models.weaponsAndWarMachines.Weapons.LongRangeWeapon;
+import models.weaponsAndWarMachines.Weapons.MaleeWeapon;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class SoldierFactory {
+public class SoldierSeeder {
     private static String[] firstNames = new String[]{
             "Harry", "Ross", "Bruce", "Cook", "Carolyn", "Morgan", "Albert",
             "Walker", "Randy", "Reed", "Larry", "Barnes", "Lois", "Wilson",

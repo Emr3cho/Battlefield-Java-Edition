@@ -1,6 +1,6 @@
-package Models.WeaponsAndWarMachines.Machines;
+package models.contacts;
 
-public interface IWarMachines {
+public interface IWeapon {
     String getName();
     int getDamage();
     int getDurability();

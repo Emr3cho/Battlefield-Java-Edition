@@ -1,18 +1,19 @@
-package Models.WeaponsAndWarMachines.Machines;
+package models.weaponsAndWarMachines.Machines;
 
-public enum AirWarMachine implements IWarMachines {
-    Helicopter("Augusta Apache", 250, 100, 2),
-    Jet("F-31", 1000, 150, 3),
-    AttachHelicopter("Kordon-66", 200, 400, 3),
-    Drone("Bayraktar TB-2", 100, 250, 0.2);
+import models.contacts.IWarMachines;
 
+public enum LandWarMachine implements IWarMachines {
+    Car("Flexi", 150, 200, 10),
+    RocketCar("MD10", 200, 60, 8),
+    AirWarMachieKiller("KillerX", 50, 50, 0.3),
+    Bus("PartyBus", 30, 500, 2);
 
     private String name;
     private int damage;
     private int durability;
     private double reloadRatio;
 
-    AirWarMachine(String name, int damage, int durability, double reloadRatio) {
+    LandWarMachine(String name, int damage, int durability, double reloadRatio) {
         this.name = name;
         this.damage = damage;
         this.durability = durability;

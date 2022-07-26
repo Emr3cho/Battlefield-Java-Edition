@@ -1,4 +1,6 @@
-package Models.WeaponsAndWarMachines.Weapons;
+package models.weaponsAndWarMachines.Weapons;
+
+import models.contacts.IWeapon;
 
 public enum LongRangeWeapon implements IWeapon {
     Rifle("AK-47", 75, 35, 2.3),

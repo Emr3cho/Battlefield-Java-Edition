@@ -1,15 +1,14 @@
-import Factories.SoldierFactory;
-import Models.Soldiers.Soldier;
-
-import java.util.List;
+import core.GameEngine;
 
 public class Main {
     public static void main(String[] args) {
+        GameEngine gameEngine = new GameEngine();
+        gameEngine.Run();
 
 
-        List<Soldier> soldiers = SoldierFactory.randomSoldierGeneratorByGivenCount(10);
-        for (Soldier soldier : soldiers) {
-            System.out.println(soldier.printSoldierNameAndWeapon());
-        }
+
+
+
+
     }
 }

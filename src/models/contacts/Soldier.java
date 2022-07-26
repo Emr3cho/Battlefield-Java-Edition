@@ -1,8 +1,7 @@
-package Models.Soldiers;
+package models.contacts;
 
-import GlobalConstansts.Exceptions.MyExceptions;
-import GlobalConstansts.PublicConstants;
-import Models.WeaponsAndWarMachines.Weapons.IWeapon;
+import common.exceptions.MyExceptions;
+import common.GlobalConstants;
 import lombok.Getter;
 
 @Getter
@@ -11,14 +10,14 @@ public abstract class Soldier {
     private int age;
     private double damage;
     private int health;
-    private IWeapon weapon;
+    private final IWeapon weapon;
 
     public Soldier(String name, int age, IWeapon weapon) {
         setName(name);
         setAge(age);
         this.weapon = weapon;
         setDamage(weapon.getDamage());
-        setHealth(PublicConstants.SOLDIER_INITIAL_HEALTH);
+        setHealth(GlobalConstants.SOLDIER_INITIAL_HEALTH);
     }
 
     public void boostDamage(double damage){

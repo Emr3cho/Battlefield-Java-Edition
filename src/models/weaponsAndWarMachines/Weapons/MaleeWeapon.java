@@ -1,4 +1,6 @@
-package Models.WeaponsAndWarMachines.Weapons;
+package models.weaponsAndWarMachines.Weapons;
+
+import models.contacts.IWeapon;
 
 public enum MaleeWeapon implements IWeapon {
     Knife("M9 Bayonet", 20, 80, 0.3),
