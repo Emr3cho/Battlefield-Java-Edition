@@ -5,6 +5,7 @@ import models.contacts.General;
 import models.contacts.IWarMachines;
 import models.contacts.Soldier;
 import models.war.Army;
+import models.war.Contarcts.IWar;
 import models.war.War;
 import seeders.GeneralSeeder;
 import seeders.SoldierSeeder;
@@ -15,10 +16,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class GameEngine implements IGameEngine {
-    @Override
-    public void Run() {
-        Scanner scanner = new Scanner(System.in);
+    public void engineStart(){
         War war = new War();
+        Thread fight = new Thread(war);
+        Scanner scanner = new Scanner(System.in);
         BattlefieldJavaEditionService service = new BattlefieldJavaEditionService();
 
         System.out.print("How many armies to have: ");
@@ -32,15 +33,27 @@ public class GameEngine implements IGameEngine {
 
         for (int i = 0; i < armiesCount; i++) {
             General general = GeneralSeeder.generalMaker();
-            List<Soldier> soldiers = SoldierSeeder.randomSoldierGeneratorByGivenCount(soldiersInEachArmy);
-            List<IWarMachines> machines = WarMachineSeeder.warMachines(machinesInEachArmy);
+            List<Soldier> soldiers;
+            List<IWarMachines> machines;
+            if(i % 2 == 0){
+                soldiers = SoldierSeeder.randomSoldierGeneratorByGivenCount(soldiersInEachArmy);
+                machines = WarMachineSeeder.warMachines(machinesInEachArmy);
+            }
+            else{
+                soldiers = SoldierSeeder.randomSoldierGeneratorByGivenCount(soldiersInEachArmy);
+                machines = WarMachineSeeder.warMachines(machinesInEachArmy);
+            }
             Army currentArmy = new Army(general, soldiers, machines);
             war.addArmy(currentArmy);
-            System.out.println("----------------------------");
+            System.out.println("-----------------------------------");
             if (i == armiesCount - 1){
                 System.out.println();
             }
         }
+
+        service.sortGeneralArmy(war);
+        war.run();
+
 
 //        service.printAllArmyWeapons(war);
 //        System.out.println(service.getAllArmySoldiersByWeaponType(war));

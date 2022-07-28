@@ -9,8 +9,9 @@ public abstract class Soldier {
     private String name;
     private int age;
     private double damage;
-    private int health;
+    private double health;
     private final IWeapon weapon;
+    private Boolean isDead;
 
     public Soldier(String name, int age, IWeapon weapon) {
         setName(name);
@@ -18,15 +19,25 @@ public abstract class Soldier {
         this.weapon = weapon;
         setDamage(weapon.getDamage());
         setHealth(GlobalConstants.SOLDIER_INITIAL_HEALTH);
+        isDead = false;
+    }
+
+    public void attackSoldier(Soldier soldier){
+        soldier.setHealth(soldier.getHealth() - this.getDamage());
+        soldier.chechIsDead();
+    }
+
+    public void chechIsDead() {
+        if (this.health <= 0){
+            isDead = true;
+        }
     }
 
     public void boostDamage(double damage){
         this.damage += damage;
     }
 
-    private void setHealth(int health) {
-        if (health <= 0)
-            throw new MyExceptions.InvalidHealthException();
+    private void setHealth(double health) {
         this.health = health;
     }
 

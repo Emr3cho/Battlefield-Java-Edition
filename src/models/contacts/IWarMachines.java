@@ -5,4 +5,5 @@ public interface IWarMachines {
     int getDamage();
     int getDurability();
     double getReloadRatio();
+    Boolean getIsDestoyed();
 }
