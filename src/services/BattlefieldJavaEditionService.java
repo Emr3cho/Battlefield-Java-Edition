@@ -1,5 +1,6 @@
 package services;
 
+import lombok.SneakyThrows;
 import models.contacts.IWarMachines;
 import models.contacts.IWeapon;
 import models.contacts.Soldier;
@@ -11,8 +12,8 @@ import java.util.*;
 
 public class BattlefieldJavaEditionService implements IBattlefieldJavaEditionService {
     @Override
-    public void printAllArmyWeapons(War armies) {
-        System.out.println(armies.printArmies());
+    public String printAllArmyWeapons(War war) {
+         return war.printArmies();
     }
 
     @Override
@@ -92,9 +93,9 @@ public class BattlefieldJavaEditionService implements IBattlefieldJavaEditionSer
         return sb.toString().trim();
     }
 
+    @SneakyThrows
     @Override
-    public String sortGeneralArmy(War war) {
-        StringBuilder sb = new StringBuilder();
+    public void sortGeneralArmy(War war) {
         for (int i = 0; i < war.getAllArmies().size(); i++) {
             Army currentArmy = war.getAllArmies().get(i);
             Collections.sort(currentArmy.getSoldiers(), (firstSoldier, secondSoldier) -> {
@@ -115,9 +116,9 @@ public class BattlefieldJavaEditionService implements IBattlefieldJavaEditionSer
                     return firstMachine.getName().compareTo(secondMachine.getName());
                 }
             });
-            sb.append(String.format("Army %d's all soldiers and machines are successfully sorted!%n", i + 1));
+            Thread.sleep(600);
+            System.out.println(String.format("Army %d's all soldiers and machines are successfully sorted!%n", i + 1));
         }
-        return sb.toString().trim();
     }
 }
 

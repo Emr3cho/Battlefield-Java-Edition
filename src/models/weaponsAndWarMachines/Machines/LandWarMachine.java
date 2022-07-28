@@ -12,6 +12,7 @@ public enum LandWarMachine implements IWarMachines {
     private int damage;
     private int durability;
     private double reloadRatio;
+    private Boolean isDestroyed;
 
     LandWarMachine(String name, int damage, int durability, double reloadRatio) {
         this.name = name;
@@ -38,6 +39,17 @@ public enum LandWarMachine implements IWarMachines {
     @Override
     public double getReloadRatio() {
         return reloadRatio;
+    }
+
+    @Override
+    public Boolean getIsDestoyed() {
+        return isDestroyed;
+    }
+
+    public void setDestroyed() {
+        if (this.durability <= 0){
+            isDestroyed = true;
+        }
     }
 }
 

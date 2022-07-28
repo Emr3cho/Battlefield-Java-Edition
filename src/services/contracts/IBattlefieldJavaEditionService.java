@@ -4,7 +4,7 @@ import models.war.War;
 
 public interface IBattlefieldJavaEditionService {
 
-    void printAllArmyWeapons(War war);
+    String printAllArmyWeapons(War war);
 
     String getAllArmySoldiersByWeaponType(War war);
 
@@ -16,5 +16,5 @@ public interface IBattlefieldJavaEditionService {
 
     String getOverallArmyDurability(War war);
 
-    String sortGeneralArmy(War war);
+    void sortGeneralArmy(War war);
 }
